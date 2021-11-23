@@ -1,0 +1,40 @@
+﻿@model BooksWebApp.Models.Yazar
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>YazarEkle</title>
+</head>
+<body>
+
+<h3 class="text-white">Yazar Ekle</h3>
+<hr />
+<div class="row text-info">
+    <div class="col-md-4">
+        <form asp-action="YazarEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="YazarAdi" class="control-label">Yazar Adı</label>
+                <input asp-for="YazarAdi" class="form-control" placeholder="Yazar Adı"/>
+                <span asp-validation-for="YazarAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OzetBiyografi" class="control-label">Özet Biyografisi</label>
+                <input asp-for="OzetBiyografi" class="form-control" placeholder="Özet Biyografisi" />
+                <span asp-validation-for="OzetBiyografi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

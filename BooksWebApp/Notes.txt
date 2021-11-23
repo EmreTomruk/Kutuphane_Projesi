@@ -1,0 +1,18 @@
+﻿Kütüphane Sistemi
+
+ *Kayıt sistemi(Uye, CezaBitisTarihi => 1 ay kitap alamaz...)
+ *Kitap Bilgilerini tut
+ Uye aynı anda en fazla 2 kitap alabilir...
+ Sadece Admin rolündeki kişilerde "Yönetim Paneli" linki gözükecek...
+ ---------------
+ Kitap(KitapID, KitapAdi, SayfaSayisi, YazarID, YayınEviID, OduncVerildi, Ozet, KapakResmi, BasimTarihi, KayıtTarihi, BaskiNo... )
+
+ Yazar(YazarID, YazarAd, OzetBiyografi) 
+ 
+ YayinEvi(YayınEviID, YayinEviAdi, Adres, Tel., EPosta )
+ 
+ Kategori(KatID, KategoriAdi)
+ KitapKategori(ID, KitapID, KategoriID)
+
+ OduncVerme(ID, UyeID, KitapID, OduncVerildigiTarih, BeklenenİadeTarihi(15 gün sonra), GerceklesenIadeTarihi, İadeEdildiMi)
+ Ceza(ID, UyeID, Aciklama, Tarih, Sure )

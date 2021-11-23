@@ -1,0 +1,40 @@
+﻿@using BooksWebApp.Models.ViewModel
+
+@model IEnumerable<KitapVM>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+</div>
+
+<table class="table">
+    <tr class="table-borderless">
+        <th class="text-info">Kitap Adı</th>
+        <th></th>
+        <th class="text-info">Yazar Adı</th>
+    </tr>
+
+    @foreach (var kitap in Model)
+     {
+        <tr class="table-borderless">
+            <td><a asp-action="Detay" asp-controller="Home" asp-route-id="@kitap.KitapID">@kitap.KitapAdi</a></td>
+
+            @* Thumbnail image *@
+            <td></td>
+            @*<td><img src="~/images/@kitap.KapakResmi" width="60" height="80" /></td>*@
+
+            <td class="text-danger">@kitap.YazarAdi</td>
+
+            @if (User.Identity.IsAuthenticated && !ViewBag.CezaliMi && ViewBag.LinkleriKapat)
+             {
+                @if (kitap.OduncDurumu != true)
+                 {
+                    <td>@Html.ActionLink("Ödünç Al", "OduncAl", new { id = kitap.KitapID }) </td>
+                 }
+             }
+        </tr>
+     }
+</table>
+

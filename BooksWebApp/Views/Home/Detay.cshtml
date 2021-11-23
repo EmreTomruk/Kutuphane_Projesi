@@ -1,0 +1,40 @@
+﻿@using BooksWebApp.Models.ViewModel
+@model KitapDetayVM
+
+<table class="table table-borderless">
+    <tr>
+        <td colspan="2"><img src="~/images/@Model.KapakResmi" width="180" height="240" /></td>
+
+    </tr>
+    <tr>
+        <td class="text-info">Kitap:</td>
+        <td class="text-white">@Model.KitapAdi</td>
+    </tr>
+
+    <tr>
+        <td class="text-info">Yazar:</td>
+        <td class="text-white">@Model.YazarAdi</td>
+    </tr>
+    <tr>
+        <td class="text-info">Yayınevi:</td>
+        <td class="text-white">@Model.YayinEviAdi</td>
+    </tr>
+
+    <tr>
+        <td class="text-info">Kategoriler:</td>
+        <td>
+            <ul class="text-white">
+                @foreach (var item in Model.Kategoriler)
+                 {
+                    @item<br />
+                 }
+            </ul>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td class="text-info">Özeti:</td>
+        <td class="text-white">@Model.Ozet</td>
+    </tr>
+</table>

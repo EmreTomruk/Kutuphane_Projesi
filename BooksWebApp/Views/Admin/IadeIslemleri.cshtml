@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BooksWebApp.Models.OduncVerme>
+
+@{
+    ViewData["Title"] = "IadeIslemleri";
+}
+
+<h1>İade İşlemleri</h1><br />
+
+<div width="200" height="100">
+    <form method="get" asp-action="IadeIslemleri" asp-controller="Admin">
+        <input type="text" name="uyeAdi" placeholder="Üye Adı" />
+        <input type="submit" value="Ara" />
+    </form><br />
+
+    <form method="get" asp-action="IadeIslemleri" asp-controller="Admin">
+        <input type="text" name="kitapAdi" placeholder="Kitap Adı" />
+        <input type="submit" value="Ara" />
+    </form><br />
+</div>
+
+<table class="table table-borderless text-white">
+    <thead>
+        <tr>
+            <th>Üye</th>
+            <th>Kitap</th>
+            <th class="list-inline">Ödünç Verilen Tarih</th>
+            <th>Beklenen İade Tarihi</th>
+            <th>Gerçekleşen İade Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form method="post" asp-action="IadeIslemleri" asp-controller="Admin">
+            @foreach (var item in Model)
+             {
+                <tr class="text-info" @*@if { DateTime.Now > item.BeklenenIadeTarih}*@>
+                    <td class="text-success">@Html.DisplayFor(modelItem => item.Uye.UserName)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.Kitap.KitapAdi)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.OduncVerildigiTarih)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.BeklenenIadeTarihi)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.GerceklesenIadeTarihi)</td>
+
+                    <td><button name="Onay" value="@item.OduncVermeID">Onay</button></td>
+                </tr>
+             }
+        </form>
+    </tbody>
+    </table>
