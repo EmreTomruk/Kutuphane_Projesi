@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using BooksWebApp.Models.ViewModel;
 using Microsoft.AspNetCore.Http;
 using BooksWebApp.Data;
+using System.Text.Json;
 
 namespace BooksWebApp.Controllers
 {
@@ -24,7 +25,7 @@ namespace BooksWebApp.Controllers
             _logger = logger;
             _context = context;
         }
-
+        
         public IActionResult Index()
         {
             List<KitapVM> kitaplarVM = new List<KitapVM>();

@@ -28,10 +28,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-info " asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                         </li>
-                        @*<li class="nav-item">
-                            <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>*@
-                        
+                            @*<li class="nav-item">
+                                <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>*@
+
                         @*Sadece Admin rolündeki kişilerde "Yönetim Paneli" sekmesi gözükecek...*@
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                          {
@@ -39,6 +39,13 @@
                                 <a class="nav-link text-info" asp-area="" asp-controller="Admin" asp-action="Index">Yönetim Paneli</a>
                             </li>
                          }
+
+                        @*@if (User.Identity.IsAuthenticated && User.IsInRole("Uye"))
+                         {
+                            <li class="nav-item">
+                                <a class="nav-link text-info" asp-area="" asp-controller="Home" asp-action="SepeteEkle">Sepetim</a>
+                            </li>
+                         }*@
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

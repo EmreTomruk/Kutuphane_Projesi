@@ -16,3 +16,15 @@
 
  OduncVerme(ID, UyeID, KitapID, OduncVerildigiTarih, BeklenenİadeTarihi(15 gün sonra), GerceklesenIadeTarihi, İadeEdildiMi)
  Ceza(ID, UyeID, Aciklama, Tarih, Sure )
+ 
+ Admin UserName:yonetici@deneme.com
+	   Password:Aa123@
+
+Admin UserName:yonetici@deneme.com
+	   Password:Aa123@
+
+Uye   UserName:aaa@deneme.com
+	  Password:Aa123@
+
+Uye   UserName:bbb@deneme.com
+	  Password:Aa123@

@@ -20,19 +20,15 @@
             @foreach (var item in Model)
              {
                 <tr>
-                    <td>
-                        <input type="date" name="ovt_@item.OduncVermeID" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now)" />
-                    </td>
-                    <td>
-                        <input type="date" name="bit_@item.OduncVermeID" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(15))" />
-                    </td>
+                    <td><input type="date" name="ovt_@item.OduncVermeID" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now)"/></td>
+
+                    <td><input type="date" name="bit_@item.OduncVermeID" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(15))"/></td>
 
                     <td class="text-success">@Html.DisplayFor(modelItem => item.Uye.UserName)</td>
 
                     <td class="text-white">@Html.DisplayFor(modelItem => item.Kitap.KitapAdi)</td>
 
                     <td><button type="submit" name="Onayla" value="@item.OduncVermeID">Onayla</button></td>
-
                 </tr>
              }
          </form>

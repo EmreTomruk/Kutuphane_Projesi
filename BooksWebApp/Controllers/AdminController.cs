@@ -119,6 +119,33 @@ namespace BooksWebApp.Controllers
             return RedirectToAction("BekleyenIslemler");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> ReddetmeIslemleri(IFormCollection frm, string Reddet)
+        {
+            //Onayla : OduncVermeID
+            //string ovt = frm["ovt_" + Onayla].ToString();
+            //string bit = frm["bit_" + Onayla].ToString();
+
+            var oduncVerme = await _db.FindAsync<OduncVerme>(int.Parse(Reddet));
+            oduncVerme.IadeEdildi = true;
+            //oduncVerme.OduncVerildigiTarih = DateTime.Parse(ovt);
+            ////oduncVerme.BeklenenIadeTarihi = DateTime.Parse(bit);
+            _db.Entry<OduncVerme>(oduncVerme).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+
+            //TODO: Kitap Tablosundaki OduncVerme alanını true yap...
+            //TODO: Listeleme yaparken kullanıcıya odunc verme...
+
+            //var kitap = await _db.FindAsync<Kitap>(oduncVerme.KitapID);
+
+            Kitap kitap = await _db.Kitaplar.Where(k => k.KitapID == oduncVerme.KitapID).SingleOrDefaultAsync();
+            kitap.OduncDurumu = false;
+            _db.Entry<Kitap>(kitap).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("BekleyenIslemler");
+        }
+
         public IActionResult IadeIslemleri(string uyeAdi, string kitapAdi)
         {
             //TODO: Arama
