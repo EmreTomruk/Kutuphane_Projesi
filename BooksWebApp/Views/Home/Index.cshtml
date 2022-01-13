@@ -17,7 +17,7 @@
     </tr>
 
     @foreach (var kitap in Model)
-     {
+    {
         <tr class="table-borderless">
             <td><a asp-action="Detay" asp-controller="Home" asp-route-id="@kitap.KitapID">@kitap.KitapAdi</a></td>
 
@@ -28,13 +28,13 @@
             <td class="text-danger">@kitap.YazarAdi</td>
 
             @if (User.Identity.IsAuthenticated && !ViewBag.CezaliMi && ViewBag.LinkleriKapat)
-             {
+            {
                 @if (kitap.OduncDurumu != true)
-                 {
-                    <td>@Html.ActionLink("Ödünç Al", "OduncAl", new { id = kitap.KitapID }) </td>
-                 }
-             }
+                {
+                   <td>@Html.ActionLink("Ödünç Al", "OduncAl", new { id = kitap.KitapID }) </td>
+                }
+            }
         </tr>
-     }
+    }
 </table>
 
