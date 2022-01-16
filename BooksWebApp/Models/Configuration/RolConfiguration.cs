@@ -14,9 +14,8 @@ namespace BooksWebApp.Models.Configuration
         public void Configure(EntityTypeBuilder<Rol> builder)
         {
             builder.HasData(
-             new Rol { Id=1,Name="Admin", NormalizedName="ADMIN" },
-             new Rol { Id = 2, Name = "Uye", NormalizedName = "UYE" }
-            );
+             new Rol { Id = 1, Name = "Admin", NormalizedName = "ADMIN" },
+             new Rol { Id = 2, Name = "Uye", NormalizedName = "UYE" });
         }
     }
 }

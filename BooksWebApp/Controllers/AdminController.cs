@@ -198,7 +198,6 @@ namespace BooksWebApp.Controllers
                 _db.Entry<Uye>(uye).State = EntityState.Modified;
                 _db.SaveChanges();
             }
-
             return RedirectToAction("IadeIslemleri");
         }
 

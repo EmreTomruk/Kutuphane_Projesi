@@ -14,7 +14,6 @@ namespace WebAPI_I.Mapping
         public void Configure(EntityTypeBuilder<KitapKategori> builder)
         {
             builder.ToTable("KitapKategoriler");
-
         }
     }
 }
